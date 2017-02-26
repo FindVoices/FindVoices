@@ -4,10 +4,13 @@ somebody's Twitter account.
 """
 import os
 from getpass import getpass
-from twitter import TwitterHTTPError
+from twitter.oauth import OAuth
+from twitter import oauth_dance, read_token_file, TwitterHTTPError
+
 
 AUTH_TOKEN_PATH = os.path.expanduser('~/.cache/oauth/twitter_findvoices.auth')
 APP_TOKEN_PATH = os.path.expanduser('~/.cache/oauth/twitter_findvoices_app.auth')
+
 
 def get_consumer_secret():
     if os.path.exists(APP_TOKEN_PATH):
@@ -21,9 +24,6 @@ def get_consumer_secret():
 
 
 def get_auth():
-    from twitter.oauth import OAuth
-    from twitter import oauth_dance, read_token_file
-
     consumer_key = '2KgMeaDVntA0ecc6Giri8ly4e'
 
     if os.path.exists(AUTH_TOKEN_PATH):
