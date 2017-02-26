@@ -34,7 +34,7 @@ def get_auth():
             os.makedirs(authdir)
         try:
             token, token_secret = oauth_dance(
-                app_name='ftfy-tester',
+                app_name='findvoices',
                 consumer_key=consumer_key,
                 consumer_secret=get_consumer_secret(),
                 token_filename=AUTH_TOKEN_PATH
